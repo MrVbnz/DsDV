@@ -21,12 +21,8 @@ namespace ZsDV
 
         private void RefreshDevices()
         {
-            lb_VideoDevices.Items.Clear();
-            lb_AudioDevices.Items.Clear();
-            foreach (var dev in DeviceManager.GetVideoDevices())
-                lb_VideoDevices.Items.Add(new DsDeviceListItem(dev));
-            foreach (var dev in DeviceManager.GetAudioDevices())
-                lb_AudioDevices.Items.Add(new DsDeviceListItem(dev));
+            UpdateListBox(lb_VideoDevices, DeviceManager.GetVideoDevices().Select(a => new DsDeviceListItem(a)));
+            UpdateListBox(lb_AudioDevices, DeviceManager.GetAudioDevices().Select(a => new DsDeviceListItem(a)));
         }
 
         private void UpdateLabels()
@@ -67,8 +63,9 @@ namespace ZsDV
         private void lb_VideoDevices_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lb_VideoDevices.SelectedItem == null)
-                return;
-            recorder.Video = (lb_VideoDevices.SelectedItem as DsDeviceListItem).DsDevice;
+                return;                        
+            recorder.BindVideoDevice((lb_VideoDevices.SelectedItem as DsDeviceListItem).DsDevice);
+            UpdateListBox(lb_VideoPins, recorder.GetVideoPinIds());
             UpdateLabels();
         }
 
@@ -76,8 +73,16 @@ namespace ZsDV
         {
             if (lb_AudioDevices.SelectedItem == null)
                 return;
-            recorder.Audio = (lb_AudioDevices.SelectedItem as DsDeviceListItem).DsDevice;
+            recorder.BindAudioDevice((lb_AudioDevices.SelectedItem as DsDeviceListItem).DsDevice);
+            UpdateListBox(lb_AudioPins, recorder.GetAudioPinIds());
             UpdateLabels();
+        }
+
+        private void UpdateListBox<T>(ListBox lb, IEnumerable<T> list)
+        {
+            lb.Items.Clear();
+            foreach (var item in list)            
+                lb.Items.Add(item);            
         }
 
         private void btn_Record_Click(object sender, EventArgs e)
@@ -86,6 +91,7 @@ namespace ZsDV
             {
                 recorder.StartRecord();
                 state = "Recording";
+                UpdateCaption();
             }
             catch (Exception exc)
             {

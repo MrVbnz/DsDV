@@ -70,7 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DsRecorder.cs" />
-    <Compile Include="ICOM.cs" />
+    <Compile Include="ComInterfaces.cs" />
     <Compile Include="MainFrom.cs">
       <SubType>Form</SubType>
     </Compile>

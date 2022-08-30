@@ -38,6 +38,10 @@
             this.lb_AudioDevices = new System.Windows.Forms.ListBox();
             this.btn_Record = new System.Windows.Forms.Button();
             this.gb_OutputSelection = new System.Windows.Forms.GroupBox();
+            this.lbl_AudioPins = new System.Windows.Forms.Label();
+            this.lbl_VideoPins = new System.Windows.Forms.Label();
+            this.lb_AudioPins = new System.Windows.Forms.ListBox();
+            this.lb_VideoPins = new System.Windows.Forms.ListBox();
             this.gb_Devices.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,6 +66,10 @@
             // 
             // gb_Devices
             // 
+            this.gb_Devices.Controls.Add(this.lbl_AudioPins);
+            this.gb_Devices.Controls.Add(this.lbl_VideoPins);
+            this.gb_Devices.Controls.Add(this.lb_AudioPins);
+            this.gb_Devices.Controls.Add(this.lb_VideoPins);
             this.gb_Devices.Controls.Add(this.lbl_SelectedAudio);
             this.gb_Devices.Controls.Add(this.lbl_SelectedVideo);
             this.gb_Devices.Controls.Add(this.lbl_AudioDevs);
@@ -71,7 +79,7 @@
             this.gb_Devices.Controls.Add(this.lb_VideoDevices);
             this.gb_Devices.Location = new System.Drawing.Point(12, 12);
             this.gb_Devices.Name = "gb_Devices";
-            this.gb_Devices.Size = new System.Drawing.Size(510, 218);
+            this.gb_Devices.Size = new System.Drawing.Size(1018, 218);
             this.gb_Devices.TabIndex = 2;
             this.gb_Devices.TabStop = false;
             this.gb_Devices.Text = "Device selection";
@@ -123,7 +131,7 @@
             // 
             // btn_Record
             // 
-            this.btn_Record.Location = new System.Drawing.Point(528, 21);
+            this.btn_Record.Location = new System.Drawing.Point(595, 422);
             this.btn_Record.Name = "btn_Record";
             this.btn_Record.Size = new System.Drawing.Size(44, 32);
             this.btn_Record.TabIndex = 3;
@@ -139,6 +147,40 @@
             this.gb_OutputSelection.TabIndex = 4;
             this.gb_OutputSelection.TabStop = false;
             this.gb_OutputSelection.Text = "Output settings";
+            // 
+            // lbl_AudioPins
+            // 
+            this.lbl_AudioPins.AutoSize = true;
+            this.lbl_AudioPins.Location = new System.Drawing.Point(758, 75);
+            this.lbl_AudioPins.Name = "lbl_AudioPins";
+            this.lbl_AudioPins.Size = new System.Drawing.Size(74, 13);
+            this.lbl_AudioPins.TabIndex = 10;
+            this.lbl_AudioPins.Text = "Audio devices";
+            // 
+            // lbl_VideoPins
+            // 
+            this.lbl_VideoPins.AutoSize = true;
+            this.lbl_VideoPins.Location = new System.Drawing.Point(508, 75);
+            this.lbl_VideoPins.Name = "lbl_VideoPins";
+            this.lbl_VideoPins.Size = new System.Drawing.Size(74, 13);
+            this.lbl_VideoPins.TabIndex = 9;
+            this.lbl_VideoPins.Text = "Video devices";
+            // 
+            // lb_AudioPins
+            // 
+            this.lb_AudioPins.FormattingEnabled = true;
+            this.lb_AudioPins.Location = new System.Drawing.Point(761, 91);
+            this.lb_AudioPins.Name = "lb_AudioPins";
+            this.lb_AudioPins.Size = new System.Drawing.Size(245, 121);
+            this.lb_AudioPins.TabIndex = 8;
+            // 
+            // lb_VideoPins
+            // 
+            this.lb_VideoPins.FormattingEnabled = true;
+            this.lb_VideoPins.Location = new System.Drawing.Point(510, 91);
+            this.lb_VideoPins.Name = "lb_VideoPins";
+            this.lb_VideoPins.Size = new System.Drawing.Size(245, 121);
+            this.lb_VideoPins.TabIndex = 7;
             // 
             // MainFrom
             // 
@@ -169,6 +211,10 @@
         private System.Windows.Forms.Label lbl_SelectedVideo;
         private System.Windows.Forms.Button btn_Record;
         private System.Windows.Forms.GroupBox gb_OutputSelection;
+        private System.Windows.Forms.Label lbl_AudioPins;
+        private System.Windows.Forms.Label lbl_VideoPins;
+        private System.Windows.Forms.ListBox lb_AudioPins;
+        private System.Windows.Forms.ListBox lb_VideoPins;
     }
 }
 
